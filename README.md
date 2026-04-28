@@ -1,0 +1,1 @@
+# strechyemma.cz
