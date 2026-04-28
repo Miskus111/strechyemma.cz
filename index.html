@@ -5,6 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Střechy EMMA | Střechy a klempířské práce Český Brod</title>
   <meta name="description" content="Střechy, okapy a klempířské práce v Českém Brodě a okolí. Rychlá domluva, férová cena. Tel. 725 443 706." />
+  
+  <!-- Vercel Web Analytics -->
+  <script>
+    (function() {
+      // Initialize the analytics queue
+      if (!window.va) {
+        window.va = function() {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+      }
+
+      // Set production mode
+      window.vam = 'production';
+
+      // Load the Vercel analytics script
+      var script = document.createElement('script');
+      script.src = '/_vercel/insights/script.js';
+      script.defer = true;
+      script.onerror = function() {
+        console.log('[Vercel Web Analytics] Please enable Web Analytics for your project in the Vercel Dashboard.');
+      };
+      document.head.appendChild(script);
+    })();
+  </script>
+  
   <style>
     :root {
       --dark: #1f2933;
