@@ -537,6 +537,253 @@
     @media(max-width:900px){
       .test-grid{ grid-template-columns:1fr; }
     }
+  
+    /* ===== MOBILNÍ TOP VERZE ===== */
+    @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+        overflow-x: hidden;
+      }
+
+      .topbar {
+        text-align: center;
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+
+      .topbar-inner {
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 14px;
+        gap: 8px;
+      }
+
+      .logo {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .logo img {
+        height: 72px !important;
+      }
+
+      .logo div {
+        font-size: 18px !important;
+      }
+
+      .logo span {
+        font-size: 30px !important;
+      }
+
+      .menu {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        gap: 12px;
+        padding: 8px 2px 4px;
+        font-size: 13px;
+        white-space: nowrap;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .menu a {
+        background: #f3eadf;
+        padding: 8px 12px;
+        border-radius: 999px;
+        flex: 0 0 auto;
+      }
+
+      .hero {
+        min-height: auto;
+        background-position: center;
+      }
+
+      .hero-content {
+        padding: 56px 16px 86px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+
+      h1 {
+        font-size: 34px;
+        line-height: 1.08;
+        margin-bottom: 16px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 18px;
+      }
+
+      .buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .btn,
+      .small-btn {
+        width: 100%;
+        min-height: 48px;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      .quick-services {
+        margin-top: -50px;
+        grid-template-columns: 1fr;
+        padding: 0 14px;
+        gap: 12px;
+      }
+
+      .quick-card {
+        min-height: auto;
+        padding: 18px;
+      }
+
+      section {
+        padding: 48px 14px;
+      }
+
+      .section-title {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+
+      .section-title p {
+        font-size: 16px;
+      }
+
+      .services-grid,
+      .works-grid,
+      .test-grid,
+      .ticks,
+      .contact-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .service,
+      .work,
+      .test,
+      .quick-card,
+      .contact-card {
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .service-img {
+        height: 220px;
+        background-position: center;
+      }
+
+      .service-body {
+        padding: 18px;
+      }
+
+      .service h3 {
+        font-size: 19px;
+      }
+
+      .service-detail {
+        margin-top: 10px;
+        padding-top: 14px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .about h2 {
+        font-size: 31px;
+      }
+
+      .about p {
+        font-size: 16px;
+      }
+
+      .about-photo {
+        min-height: 260px;
+        box-shadow: 8px 8px 0 var(--orange) !important;
+      }
+
+      .work-img {
+        height: 220px;
+      }
+
+      .cta h2 {
+        font-size: 31px;
+      }
+
+      .cta p {
+        font-size: 16px;
+      }
+
+      .contact-card {
+        padding: 24px 18px;
+      }
+
+      .contact-card h2 {
+        font-size: 28px;
+      }
+
+      .contact-line a {
+        font-size: 24px;
+        font-weight: 900;
+        color: var(--orange2);
+        text-decoration: none;
+      }
+
+      .map-embed {
+        width: 100%;
+        height: 300px;
+        border: 0;
+        border-radius: 14px;
+      }
+
+      .sticky-call {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        text-align: center;
+        border-radius: 999px;
+        padding: 15px 18px;
+        font-size: 17px;
+      }
+
+      footer {
+        padding-bottom: 80px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      h1 {
+        font-size: 30px;
+      }
+
+      .logo img {
+        height: 62px !important;
+      }
+
+      .logo span {
+        font-size: 26px !important;
+      }
+    }
   </style>
 </head>
 <body>
