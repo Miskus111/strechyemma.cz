@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Střechy EMMA | Střechy a klempířské práce Český Brod</title>
+  <meta name="description" content="Střechy, okapy a klempířské práce v Českém Brodě a okolí. Rychlá domluva, férová cena. Tel. 723 866 446." />
+  <style>
+    :root {
+      --dark: #1f2933;
+      --dark2: #111827;
+      --orange: #d9822b;
+      --orange2: #f0a94f;
+      --light: #f5f1ea;
+      --paper: #ffffff;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --green: #425f57;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      background: var(--dark2);
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .topbar a {
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--orange2);
+    }
+
+    nav {
+      background: rgba(255,255,255,.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 18px rgba(0,0,0,.08);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .logo span { color: var(--orange); }
+
+    .menu {
+      display: flex;
+      gap: 28px;
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: var(--dark);
+    }
+
+    .menu a:hover { color: var(--orange); }
+
+    .hero {
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(17,24,39,.93), rgba(17,24,39,.62), rgba(17,24,39,.25)),
+        url('https://i.imgur.com/oqsFwV2.jpeg') center/cover;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 90px 20px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 13px;
+      border-left: 5px solid var(--orange);
+      background: rgba(255,255,255,.12);
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.02;
+      max-width: 850px;
+      margin: 0 0 22px;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      max-width: 640px;
+      font-size: 21px;
+      margin-bottom: 30px;
+      color: #f3f4f6;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 22px;
+      border-radius: 2px;
+      text-decoration: none;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: #b86517; transform: translateY(-2px) scale(1.03); }
+
+    .service, .work { transition: transform .25s ease, box-shadow .25s ease; }
+    .service:hover, .work:hover { transform: translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,.15);}
+
+    .btn-ghost {
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    .btn-ghost:hover { background: #fff; color: var(--dark); }
+
+    .quick-services {
+      max-width: 1180px;
+      margin: -72px auto 0;
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .quick-card {
+      background: var(--paper);
+      padding: 26px 22px;
+      min-height: 175px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.13);
+      border-top: 5px solid var(--orange);
+    }
+
+    .quick-card strong {
+      display: block;
+      font-size: 34px;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .quick-card h3 {
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      font-size: 19px;
+    }
+
+    .quick-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    section { padding: 84px 20px; }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service {
+      background: #fff;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,.06);
+    }
+
+    .service details {
+      height: 100%;
+    }
+
+    .service summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .service summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .service h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .service h3::after {
+      content: "+";
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .service details[open] h3::after {
+      content: "−";
+      background: var(--dark);
+    }
+
+    .service-detail {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--dark);
+    }
+
+    .service-detail ul {
+      margin: 10px 0 18px;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .price-box {
+      background: #f3eadf;
+      border-left: 5px solid var(--orange);
+      padding: 14px 16px;
+      margin: 16px 0;
+      font-weight: 900;
+    }
+
+    .small-btn {
+      display: inline-flex;
+      background: var(--dark);
+      color: #fff;
+      padding: 11px 15px;
+      text-decoration: none;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .small-btn:hover {
+      background: var(--orange);
+    }
+
+    .service-img {
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .service-body { padding: 24px; }
+
+    .service h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      text-transform: uppercase;
+    }
+
+    .service p { margin: 0; color: var(--muted); }
+
+    .about {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.08;
+      margin: 0 0 20px;
+      text-transform: uppercase;
+    }
+
+    .about p { color: #d1d5db; font-size: 18px; }
+
+    .ticks {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .tick {
+      background: rgba(255,255,255,.08);
+      padding: 14px;
+      border-left: 4px solid var(--orange);
+      font-weight: 800;
+    }
+
+    .about-photo {
+      min-height: 430px;
+      background: url('https://i.imgur.com/njGFT3q.jpeg') center/cover;
+      box-shadow: 20px 20px 0 var(--orange);
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .work {
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(0,0,0,.08);
+    }
+
+    .work-img {
+      height: 170px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .work-body { padding: 18px; }
+
+    .work h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f3eadf;
+      color: #87501a;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .cta {
+      background:
+        linear-gradient(90deg, rgba(217,130,43,.92), rgba(217,130,43,.82)),
+        url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: #fff;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      text-transform: uppercase;
+    }
+
+    .cta p {
+      font-size: 20px;
+      max-width: 720px;
+      margin: 0 auto 28px;
+    }
+
+    .contact-section {
+      background: #fff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .contact-card {
+      padding: 34px;
+      background: var(--dark2);
+      color: #fff;
+    }
+
+    .contact-card h2 {
+      margin: 0 0 20px;
+      text-transform: uppercase;
+      font-size: 34px;
+    }
+
+    .contact-line {
+      border-top: 1px solid rgba(255,255,255,.18);
+      padding: 18px 0;
+      font-size: 18px;
+    }
+
+    .contact-line strong {
+      display: block;
+      color: var(--orange2);
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .map-placeholder {
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(66,95,87,.88), rgba(66,95,87,.88)),
+        url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80') center/cover;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .map-placeholder h3 {
+      font-size: 36px;
+      margin: 0 0 10px;
+      text-transform: uppercase;
+    }
+
+    footer {
+      background: #0b1018;
+      color: #aeb6c2;
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .menu { display: none; }
+      .quick-services, .services-grid, .works-grid { grid-template-columns: repeat(2, 1fr); }
+      .section-title, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 590px; }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner, .nav-inner { align-items: flex-start; }
+      .quick-services, .services-grid, .works-grid, .ticks { grid-template-columns: 1fr; }
+      section { padding: 58px 18px; }
+      .hero-content { padding: 70px 18px 120px; }
+      .quick-services { margin-top: -95px; }
+      .btn { width: 100%; }
+      .about-photo { min-height: 300px; box-shadow: 10px 10px 0 var(--orange); }
+    }
+  
+    /* NEW: sticky call + testimonials + stronger text tweaks */
+    .sticky-call{position:fixed; bottom:15px; right:15px; z-index:99; background:var(--orange); color:#fff; padding:14px 18px; font-weight:900; text-decoration:none; box-shadow:0 10px 25px rgba(0,0,0,.3);} 
+    
+
+    .testimonials{ background:#fff; }
+    .test-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .test{ background:#fff; border:1px solid var(--line); padding:22px; box-shadow:0 8px 20px rgba(0,0,0,.05);} 
+    .stars{ color:var(--orange); font-size:18px; margin-bottom:10px; }
+
+    @media(max-width:900px){
+      .test-grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div>Střechy a klempířské práce | Český Brod a okolí</div>
+      <div>Kontakt: <a href="tel:723866446">723 866 446</a></div>
+    </div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <div class="logo" style="display:flex;align-items:center;gap:12px;">
+        <img src="https://i.imgur.com/dGSKPfe.jpeg" style="height:110px;">
+        <div style="font-size:24px;font-weight:900;text-transform:uppercase;line-height:1;">
+          Střechy<br><span style="color:#d9822b;font-size:40px;">EMMA</span>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#uvod">Úvod</a>
+        <a href="#sluzby">Služby</a>
+        <a href="#onas">O nás</a>
+        <a href="#reference">Reference</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="uvod">
+    <div class="hero-content">
+      <span class="eyebrow">Poctivé řemeslo z Českého Brodu</span>
+      <h1>Zatéká vám do střechy? Vyřešíme to rychle a na jistotu</h1>
+      <p>Přijedeme, zkontrolujeme stav a navrhneme řešení, které dává smysl. Bez zbytečných řečí, bez tahání peněz.</p><p style="font-weight:900;color:#fff">📞 Volné termíny tento týden – zavolejte hned</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="tel:723866446">Zavolat 723 866 446</a>
+        <a class="btn btn-ghost" href="#sluzby">Naše služby</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="quick-services">
+    <div class="quick-card">
+      <h3>Okapy</h3>
+      <p>Montáž, výměna a opravy okapových systémů.</p>
+    </div>
+    <div class="quick-card">
+      <h3>Střechy</h3>
+      <p>Opravy, rekonstrukce i kompletní nové střechy na klíč.</p>
+    </div>
+    <div class="quick-card">
+      <h3>Oplechování</h3>
+      <p>Komíny, římsy, atiky, parapety a detaily.</p>
+    </div>
+    <div class="quick-card">
+      <h3>Zakázky na míru</h3>
+      <p>Domluva, zaměření a férová nabídka.</p>
+    </div>
+  </div>
+
+  <section id="sluzby">
+    <div class="container">
+      <div class="section-title">
+        <h2>Naše služby</h2>
+        <p>Od malých oprav až po kompletní střechy. Zavolejte – přijedeme, podíváme se a řekneme vám narovinu, co má smysl dělat.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service">
+          <details>
+            <summary>
+              <div class="service-img" style="background-image:url('https://i.imgur.com/Qo6xkWS.jpeg'); background-position:center; background-size:cover; background-repeat:no-repeat;"></div>
+              <div class="service-body">
+                <h3>Montáž okapů</h3>
+                <p>Nové okapy, svody a doplňky pro rodinné domy, garáže, chaty i menší stavby.</p>
+              </div>
+            </summary>
+            <div class="service-body service-detail">
+              <strong>Co to znamená?</strong>
+              <p>Zaměříme střechu, doporučíme vhodný typ okapu, připravíme materiál a provedeme montáž včetně svodů, háků a napojení.</p>
+              <ul>
+                <li>montáž nových okapů</li>
+                <li>výměna starých okapů</li>
+                <li>oprava spádování a uchycení</li>
+              </ul>
+              <div class="price-box">Orientační cena: od XXX Kč</div>
+              <a class="small-btn" href="tel:723866446">Zavolat kvůli ceně</a>
+            </div>
+          </details>
+        </article>
+
+        <article class="service">
+          <details>
+            <summary>
+              <div class="service-img" style="background-image:url('https://i.imgur.com/j56Rkxf.jpeg')"></div>
+              <div class="service-body">
+                <h3>Opravy střech</h3>
+                <p>Řešení zatékání, poškozených částí střechy a problematických detailů.</p>
+              </div>
+            </summary>
+            <div class="service-body service-detail">
+              <strong>Co to znamená?</strong>
+              <p>Přijedeme se podívat na místo, najdeme příčinu problému a navrhneme opravu tak, aby střecha zase spolehlivě držela.</p>
+              <ul>
+                <li>opravy zatékání</li>
+                <li>opravy po větru a počasí</li>
+                <li>výměna poškozených prvků</li>
+              </ul>
+              <div class="price-box">Orientační cena: od XXX Kč</div>
+              <a class="small-btn" href="tel:723866446">Zavolat kvůli ceně</a>
+            </div>
+          </details>
+        </article>
+
+        <article class="service">
+          <details>
+            <summary>
+              <div class="service-img" style="background-image:url('https://i.imgur.com/2LMVgc2.jpeg')"></div>
+              <div class="service-body">
+                <h3>Klempířské prvky</h3>
+                <p>Výroba a montáž oplechování, lemování, závětrných lišt a dalších detailů.</p>
+              </div>
+            </summary>
+            <div class="service-body service-detail">
+              <strong>Co to znamená?</strong>
+              <p>Vyrobíme nebo namontujeme plechové prvky přesně podle střechy. Jde hlavně o místa, kde je potřeba střechu dobře utěsnit a ochránit.</p>
+              <ul>
+                <li>závětrné lišty</li>
+                <li>oplechování okrajů střechy</li>
+                <li>lemování a napojení</li>
+              </ul>
+              <div class="price-box">Orientační cena: od XXX Kč</div>
+              <a class="small-btn" href="tel:723866446">Zavolat kvůli ceně</a>
+            </div>
+          </details>
+        </article>
+
+        <article class="service">
+          <details>
+            <summary>
+              <div class="service-img" style="background-image:url('https://i.imgur.com/DgXveQN.jpeg')"></div>
+              <div class="service-body">
+                <h3>Oplechování komínů</h3>
+                <p>Precizní oplechování komínů, prostupů a napojení střechy.</p>
+              </div>
+            </summary>
+            <div class="service-body service-detail">
+              <strong>Co to znamená?</strong>
+              <p>Komín je jedno z nejčastějších míst, kudy zatéká. Uděláme oplechování kolem komínu tak, aby voda správně odtékala pryč.</p>
+              <ul>
+                <li>oplechování komínů</li>
+                <li>napojení na krytinu</li>
+                <li>oprava netěsných detailů</li>
+              </ul>
+              <div class="price-box">Orientační cena: od XXX Kč</div>
+              <a class="small-btn" href="tel:723866446">Zavolat kvůli ceně</a>
+            </div>
+          </details>
+        </article>
+
+        <article class="service">
+          <details>
+            <summary>
+              <div class="service-img" style="background-image:url('https://i.imgur.com/utSDgFL.jpeg')"></div>
+              <div class="service-body">
+                <h3>Rekonstrukce střech</h3>
+                <p>Pomoc při opravách starších střech, výměně prvků a přípravě na další práce.</p>
+              </div>
+            </summary>
+            <div class="service-body service-detail">
+              <strong>Co to znamená?</strong>
+              <p>U starších střech zkontrolujeme stav, domluvíme rozsah prací a provedeme výměnu nebo opravu klempířských částí.</p>
+              <ul>
+                <li>výměna starých klempířských prvků</li>
+                <li>oprava detailů před další rekonstrukcí</li>
+                <li>údržba střechy před sezónou</li>
+              </ul>
+              <div class="price-box">Orientační cena: od XXX Kč</div>
+              <a class="small-btn" href="tel:723866446">Zavolat kvůli ceně</a>
+            </div>
+          </details>
+        </article>
+
+        
+        <article class="service">
+          <details>
+            <summary>
+              <div class="service-img" style="background-image:url('https://i.imgur.com/NHaDfnT.jpeg')"></div>
+              <div class="service-body">
+                <h3>Čištění a údržba střech</h3>
+                <p>Pravidelná kontrola, čištění okapů a odstranění nečistot ze střechy.</p>
+              </div>
+            </summary>
+            <div class="service-body service-detail">
+              <strong>Co to znamená?</strong>
+              <p>Vyčistíme okapy, zkontrolujeme stav střechy a odstraníme mech, listí nebo jiné nečistoty, které mohou způsobit problémy.</p>
+              <ul>
+                <li>čištění okapů a svodů</li>
+                <li>odstranění mechu a nečistot</li>
+                <li>kontrola stavu střechy</li>
+              </ul>
+              <div class="price-box">Orientační cena: od XXX Kč</div>
+              <a class="small-btn" href="tel:723866446">Zavolat kvůli ceně</a>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVÉ: Reference -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>Co říkají zákazníci</h2>
+        <p>Reálné zkušenosti zákazníků – později můžeš upravit podle skutečných zakázek.</p>
+      </div>
+
+      <div class="test-grid">
+        <div class="test">
+          <div class="stars">★★★★★</div>
+          <p>„Rychlá domluva a hotovo za jeden den. Okapy drží perfektně.“</p>
+          <small>— Novák, Český Brod</small>
+        </div>
+        <div class="test">
+          <div class="stars">★★★★★</div>
+          <p>„Vyřešili zatékání kolem komínu, co jiní nezvládli.“</p>
+          <small>— Svoboda, Kolín</small>
+        </div>
+        <div class="test">
+          <div class="stars">★★★★★</div>
+          <p>„Férová cena a dobrá komunikace. Doporučuju.“</p>
+          <small>— Dvořák, Český Brod</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Kde pracujeme</h2>
+        <p>Realizujeme střechy a klempířské práce v Praze a okolí cca do 1 hodiny od Českého Brodu.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;font-weight:700;">
+        <div>Praha</div>
+        <div>Kolín</div>
+        <div>Nymburk</div>
+        <div>Poděbrady</div>
+        <div>Český Brod</div>
+        <div>Říčany</div>
+        <div>Brandýs nad Labem</div>
+        <div>Čelákovice</div>
+        <div>Úvaly</div>
+        <div>Kutná Hora</div>
+        <div>Benátky nad Jizerou</div>
+        <div>Mladá Boleslav</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Jak probíhá spolupráce</h2>
+        <p>Jednoduchý a férový postup bez zbytečných komplikací.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <div class="quick-card">
+          <h3>1. Kontakt</h3>
+          <p>Zavoláte nebo napíšete. Domluvíme si termín.</p>
+        </div>
+        <div class="quick-card">
+          <h3>2. Prohlídka</h3>
+          <p>Přijedeme, zkontrolujeme stav a navrhneme řešení.</p>
+        </div>
+        <div class="quick-card">
+          <h3>3. Realizace</h3>
+          <p>Domluvenou práci provedeme rychle a kvalitně.</p>
+        </div>
+        <div class="quick-card">
+          <h3>4. Hotovo</h3>
+          <p>Předáme hotovou práci a máte klid.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Potřebujete opravit střechu nebo okapy?</h2>
+      <p>Zavolejte. Domluvíme se, přijedeme se podívat a navrhneme řešení podle stavu střechy.</p>
+      <a class="btn btn-ghost" href="tel:723866446">Zavolat 723 866 446</a>
+    </div>
+  </section>
+
+  <section class="contact-section" id="kontakt">
+    <div class="container contact-grid">
+      <div class="contact-card">
+        <h2>Kontakty</h2>
+        <div class="contact-line">
+          <strong>Kontakt</strong>
+          Emil Fišer<br>
+          <a href="tel:723866446">723 866 446</a>
+        </div>
+        
+        <div class="contact-line">
+          <strong>Lokalita</strong>
+          Český Brod a okolí
+        </div>
+        <div class="contact-line">
+          <strong>Služby</strong>
+          Klempířské práce, střechy, okapy, oplechování
+        </div>
+      </div>
+
+      <iframe class="map-embed" src="https://www.google.com/maps?q=%C4%8Cesk%C3%BD%20Brod&output=embed"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Střechy EMMA | Střechy a klempířské práce Český Brod a okolí
+  </footer>
+  
+  <a class="sticky-call" href="tel:723866446">📞 Zavolat</a>
+</body>
+</html>
